@@ -54,7 +54,7 @@
      
 
 <h5 style="padding-left: 20px"><?php echo $row_cat['cat_name'] ?></h5>
-      <div style="background-color: lightgrey; border-radius: 20px ">
+      <div style="background-color:#D8D8D8; border-radius: 20px; opacity: 0.9 ">
 
       <?php
         $cat_id = $row_cat['cat_id'];
