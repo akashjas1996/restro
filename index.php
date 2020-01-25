@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Menu - [Restaurant Name]</title>
+  <title>Menu WRAPSTICK</title>
   <!-- MDB icon -->
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
   <!-- Font Awesome -->
@@ -137,9 +137,10 @@
 
 
 <!-- Bottom Heade starts -->
-<nav class="navbar fixed-bottom navbar-dark  bg-dark">
+<nav style="opacity: 0.93" class="navbar fixed-bottom navbar-dark  bg-dark">
     
   <div class="container">
+    
     <div style="width: 100vw" class="row">
     <div class="col-lg-9 col-9">
       <div style="color: white" id="pre-review-order"> </div>
@@ -148,15 +149,28 @@
        <b>
          
           <p style="color: white; display: inline; line-height:10px" class="mt-2">Total = ₹ </p> <p id="total_box" style="color: white; line-height:10px; display: inline" id="total_amt"> 0 </p>
-
        </b>
+       <p style="display: none" id="link_next" style="color: white">  </p>
   </div>
 
   <div class="col-lg-3 col-3 mt-2">
-    <a href="order/">  <button type="button" class="btn-sm btn-success btn-rounded">Proceed</button> </a>
+    <button onclick="redirect_order()" type="button" class="btn-sm btn-success btn-rounded">Proceed</button>
+
+      <script>
+        function redirect_order(){
+           var link_order = document.getElementById('link_next').innerHTML; 
+           window.location.href = '/order/?val='+link_order;
+        }
+       
+        // var btn_link = document.getElementById('anchor').innerHTML;
+        // btn_link.setAttribute("href", link_order);
+        
+      </script>
   </div>
   </div>
+
 </div>
+
 
 </nav>
 
@@ -185,18 +199,16 @@
         document.getElementById(a).innerHTML=count+1;
         count++;
         var line_id = "item"+a;
-
-        
-
         if($(line_id).length){
-            var element_old = document.getElementById(line_id);
-            element_old.innerHTML="";
-            element_old.appendChild(document.createTextNode(name+' X '+ count+' = ₹ '+ price*count));
-            total_box = document.getElementById('total_box');
-            current_total = document.getElementById('total_box').innerHTML;
-            current_total = Number(current_total);
-            console.log(current_total);
-            total_box.innerHTML=price+current_total;
+          var element_old = document.getElementById(line_id);
+          element_old.innerHTML="";
+          element_old.appendChild(document.createTextNode(name+' X '+ count+' = ₹ '+ price*count));
+          total_box = document.getElementById('total_box');
+          current_total = document.getElementById('total_box').innerHTML;
+          current_total = Number(current_total);
+          console.log(current_total);
+          total_box.innerHTML=price+current_total;
+          document.getElementById('link_next').innerHTML=document.getElementById('link_next').innerHTML+a+',';
             // element_old.appendChild("BR");
         }
         else{
@@ -204,19 +216,20 @@
           element.setAttribute("id",line_id);
           element.appendChild(document.createTextNode(name+' X '+ count+' = ₹ '+ price*count));
            // $tot_price=$tot_price+(price*count);
-
-
           document.getElementById('pre-review-order').appendChild(element);
-           var br = document.createElement("BR");
-           br.setAttribute("id",'br'+line_id);
-           document.getElementById('pre-review-order').appendChild(br);
+          var br = document.createElement("BR");
+          br.setAttribute("id",'br'+line_id);
+          document.getElementById('pre-review-order').appendChild(br);
+          total_box = document.getElementById('total_box');
+          current_total = document.getElementById('total_box').innerHTML;
+          current_total = Number(current_total);
+          console.log(current_total);
+          total_box.innerHTML=price+current_total;
+          // document.getElementById('link_next').innerHTML=a;
+          total_box.innerHTML=price+current_total;
 
-           total_box = document.getElementById('total_box');
-            current_total = document.getElementById('total_box').innerHTML;
-            current_total = Number(current_total);
-            console.log(current_total);
-            total_box.innerHTML=price+current_total;
-
+          document.getElementById('link_next').innerHTML=document.getElementById('link_next').innerHTML+a+',';
+          // document.getElementById('link_next').innerHTML=a;
         }
       }
       function remove_item(a, name, price){

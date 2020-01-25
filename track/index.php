@@ -73,7 +73,7 @@
           
           <h5 class="font-weight-bold mb-1">Chicken Keema</h5>
 
-          <p>Lorem ipsum dolor sit amet consectetur adip elit. </p>
+          <!-- <p>Lorem ipsum dolor sit amet consectetur adip elit. </p> -->
           <b> <p style="line-height: 10px; font-weight: bold"> ₹ 30 </p> </b>
 
          
@@ -115,7 +115,7 @@
           
           <h5 class="font-weight-bold mb-1">Gobi Manchurian</h5>
 
-          <p>Lorem ipsum dolor sit amet consectetur adip elit. </p>
+          <!-- <p>Lorem ipsum dolor sit amet consectetur adip elit. </p> -->
            <b> <p style="line-height: 10px; font-weight: bold"> ₹ 50 </p> </b>
 
          
