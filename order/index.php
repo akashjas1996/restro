@@ -75,6 +75,14 @@
       $res_orders = mysqli_query($link, $query_orders);
       while($row_orders = mysqli_fetch_assoc($res_orders)){
         ?>
+
+
+        <?php 
+          $food_id = $row_orders['item_id'];
+          $query_details = "SELECT * FROM menu WHERE food_id='$food_id'";
+          $res_details = mysqli_query($link, $query_details);
+          $row_details = mysqli_fetch_assoc($res_details);
+        ?>
         <div class="container my-1 z-depth-0">
   <!--Section: Content-->
   <section class="dark-grey-text">
@@ -84,10 +92,10 @@
       <div class="col-md-8 col-8 d-flex align-items-center mt-3">
         <div>
           
-          <h5 class="font-weight-bold mb-1"><?php echo $row_orders['item_id'] ?></h5>
+          <h5 class="font-weight-bold mb-1"><?php echo $row_details['food_name'] ?></h5>
 
           <!-- <p>Lorem ipsum dolor sit amet consectetur adip elit. </p> -->
-          <b> <p style="line-height: 10px; font-weight: bold"> ₹ <?php echo $row_orders['item_id'] ?> </p> </b>
+          <b> <p style="line-height: 10px; font-weight: bold"> ₹ <?php echo $row_details['price'] ?> </p> </b>
 
          
         </div>
