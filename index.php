@@ -150,7 +150,7 @@
          
           <p style="color: white; display: inline; line-height:10px" class="mt-2">Total = ₹ </p> <p id="total_box" style="color: white; line-height:10px; display: inline" id="total_amt"> 0 </p>
        </b>
-       <p style="display: none" id="link_next" style="color: white">  </p>
+       <p style="display: none" id="link_next" style="color: white"></p>
   </div>
 
   <div class="col-lg-3 col-3 mt-2">
